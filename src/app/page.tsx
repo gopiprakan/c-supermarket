@@ -1,65 +1,111 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Clock, Tag, ChevronRight } from "lucide-react";
+import ProductCard from "@/components/ProductCard";
+
+// Mock data for categories
+const CATEGORIES = [
+  { name: "Vegetables", image: "🥗", color: "bg-green-100" },
+  { name: "Fruits", image: "🍎", color: "bg-red-100" },
+  { name: "Dairy & Eggs", image: "🥛", color: "bg-blue-100" },
+  { name: "Atta & Rice", image: "🌾", color: "bg-amber-100" },
+  { name: "Dal & Pulses", image: "🥣", color: "bg-orange-100" },
+  { name: "Oils & Ghee", image: "🫙", color: "bg-yellow-100" },
+  { name: "Snacks", image: "🍪", color: "bg-pink-100" },
+  { name: "Beverages", image: "🧃", color: "bg-purple-100" },
+  { name: "Household", image: "🧼", color: "bg-teal-100" },
+];
+
+const DEALS = [
+  { id: 1, name: "Aashirvaad Select Premium Sharbati Atta", weight: "5 kg", mrp: 350, price: 299, discount: 14, image: "🌾", tag: "Deal of the Day" },
+  { id: 2, name: "Amul Taaza Homogenised Toned Milk", weight: "1 L", mrp: 74, price: 72, discount: 2, image: "🥛", tag: "Popular" },
+  { id: 3, name: "Fortune Sunlite Refined Sunflower Oil", weight: "1 L", mrp: 180, price: 135, discount: 25, image: "🫙", tag: "Super Saver" },
+  { id: 4, name: "Tata Salt, Vacuum Evaporated Iodised", weight: "1 kg", mrp: 28, price: 24, discount: 14, image: "🧂", tag: "Essential" },
+  { id: 5, name: "Surf Excel Easy Wash Detergent Powder", weight: "1.5 kg", mrp: 225, price: 199, discount: 11, image: "🧼", tag: "Combo Pack" },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="bg-white">
+      {/* Hero Banner Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+        <div className="relative w-full h-[200px] sm:h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-sm">
+          <Image
+            src="/hero_banner.png"
+            alt="Super Offers - Upto 50% Off"
+            fill
+            className="object-cover object-center"
+            priority
+          />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Categories Strip */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900">Shop by Category</h2>
         </div>
-      </main>
+        <div className="flex overflow-x-auto pb-4 gap-4 sm:gap-6 hide-scrollbar snap-x">
+          {CATEGORIES.map((cat, idx) => (
+            <Link href={`/category/${cat.name.toLowerCase()}`} key={idx} className="snap-start shrink-0 flex flex-col items-center gap-2 group">
+              <div className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center text-3xl sm:text-4xl ${cat.color} group-hover:shadow-md transition-shadow`}>
+                {cat.image}
+              </div>
+              <span className="text-sm font-medium text-gray-700 text-center w-20 sm:w-24 leading-tight">{cat.name}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Deal of the Day */}
+      <section className="bg-orange-50 py-8 border-y border-orange-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-3">
+              <div className="bg-red-500 text-white p-2 rounded-lg">
+                <Clock size={24} />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 leading-tight">Deal of the Day</h2>
+                <p className="text-sm text-red-600 font-semibold">Ends in 04:23:15</p>
+              </div>
+            </div>
+            <button className="text-[#1a6b2e] font-semibold flex items-center hover:underline">
+              View All <ChevronRight size={18} />
+            </button>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {DEALS.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Offers & Bank Banners */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl p-6 text-white shadow-sm flex flex-col justify-center items-start">
+            <h3 className="text-xl font-bold mb-1">Buy 2 Get 1 Free</h3>
+            <p className="text-sm text-purple-100 mb-4">On selected chocolates & snacks</p>
+            <button className="bg-white text-indigo-600 px-4 py-1.5 rounded-full text-sm font-bold">Shop Now</button>
+          </div>
+          <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl p-6 text-white shadow-sm flex flex-col justify-center items-start">
+            <div className="flex items-center gap-2 mb-1">
+              <Tag size={20} />
+              <h3 className="text-xl font-bold">Flat ₹100 Cashback</h3>
+            </div>
+            <p className="text-sm text-green-100 mb-4">On orders above ₹999 via UPI</p>
+            <button className="bg-white text-emerald-600 px-4 py-1.5 rounded-full text-sm font-bold">Claim Offer</button>
+          </div>
+          <div className="bg-gradient-to-r from-amber-400 to-orange-500 rounded-xl p-6 text-white shadow-sm flex flex-col justify-center items-start">
+            <h3 className="text-xl font-bold mb-1">Combo Packs</h3>
+            <p className="text-sm text-amber-50 mb-4">Save up to 30% on monthly essentials</p>
+            <button className="bg-white text-orange-600 px-4 py-1.5 rounded-full text-sm font-bold">Explore</button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
