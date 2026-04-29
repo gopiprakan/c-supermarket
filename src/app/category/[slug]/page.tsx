@@ -32,7 +32,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
               <h2 className="font-bold text-gray-900 flex items-center gap-2">
                 <Filter size={18} /> Filters
               </h2>
-              <button className="text-sm text-[#1a6b2e] font-semibold">Clear All</button>
+              <button type="button" className="text-sm text-[#1a6b2e] font-semibold cursor-pointer">Clear All</button>
             </div>
 
             <div className="mb-6">
@@ -66,8 +66,9 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
               <h1 className="text-xl md:text-2xl font-bold text-gray-900">{categoryName} <span className="text-sm text-gray-500 font-normal ml-2">(124 items)</span></h1>
               
               <div className="flex items-center gap-3">
-                <button className="lg:hidden flex items-center gap-1 bg-gray-100 px-3 py-1.5 rounded-lg text-sm font-semibold">
-                  <Filter size={16} /> Filter
+                <button type="button" className="lg:hidden flex items-center gap-1 bg-gray-100 px-3 py-1.5 rounded-lg text-sm font-semibold cursor-pointer">
+                  <Filter size={18} />
+                  Filter
                 </button>
                 <div className="flex items-center gap-2 bg-gray-100 px-3 py-1.5 rounded-lg text-sm font-semibold cursor-pointer">
                   <span>Sort by: Relevance</span>

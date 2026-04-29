@@ -20,7 +20,7 @@ export default function Header() {
           
           {/* Logo & Mobile Menu */}
           <div className="flex items-center gap-4">
-            <button className="md:hidden p-1 text-gray-700">
+            <button type="button" className="md:hidden p-1 text-gray-700 cursor-pointer">
               <Menu size={24} />
             </button>
             <Link href="/" className="flex-shrink-0">
@@ -55,7 +55,7 @@ export default function Header() {
                 id="search"
                 placeholder="Search for groceries, vegetables, or brands in English or Hindi..."
               />
-              <button className="bg-[#1a6b2e] text-white px-6 h-full font-semibold text-sm hover:bg-[#124d20] transition-colors">
+              <button type="button" className="bg-[#1a6b2e] text-white px-6 h-full font-semibold text-sm hover:bg-[#124d20] transition-colors cursor-pointer flex items-center justify-center">
                 Search
               </button>
             </div>
@@ -63,14 +63,15 @@ export default function Header() {
 
           {/* Actions */}
           <div className="flex items-center gap-3 md:gap-5">
-            <button className="hidden md:flex items-center gap-2 text-gray-700 hover:text-[#1a6b2e] font-medium transition">
+            <button type="button" className="hidden md:flex items-center gap-2 text-gray-700 hover:text-[#1a6b2e] font-medium transition cursor-pointer">
               <User size={22} />
               <span>Login</span>
             </button>
 
             <button 
+              type="button"
               onClick={toggleCart}
-              className="flex items-center gap-2 bg-[#f9c740] hover:bg-[#e0b030] text-gray-900 px-3 md:px-4 py-2 md:py-2.5 rounded-lg font-bold transition shadow-sm"
+              className="flex items-center gap-2 bg-[#f9c740] hover:bg-[#e0b030] text-gray-900 px-3 md:px-4 py-2 md:py-2.5 rounded-lg font-bold transition shadow-sm cursor-pointer"
             >
               <div className="relative">
                 <ShoppingCart size={22} />

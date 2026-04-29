@@ -70,7 +70,7 @@ export default function Home() {
                 <p className="text-sm text-red-600 font-semibold">Ends in 04:23:15</p>
               </div>
             </div>
-            <button className="text-[#1a6b2e] font-semibold flex items-center hover:underline">
+            <button type="button" className="text-[#1a6b2e] font-semibold flex items-center justify-center hover:underline cursor-pointer">
               View All <ChevronRight size={18} />
             </button>
           </div>
@@ -89,7 +89,7 @@ export default function Home() {
           <div className="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl p-6 text-white shadow-sm flex flex-col justify-center items-start">
             <h3 className="text-xl font-bold mb-1">Buy 2 Get 1 Free</h3>
             <p className="text-sm text-purple-100 mb-4">On selected chocolates & snacks</p>
-            <button className="bg-white text-indigo-600 px-4 py-1.5 rounded-full text-sm font-bold">Shop Now</button>
+            <button type="button" className="bg-white text-indigo-600 px-4 py-1.5 rounded-full text-sm font-bold cursor-pointer">Shop Now</button>
           </div>
           <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl p-6 text-white shadow-sm flex flex-col justify-center items-start">
             <div className="flex items-center gap-2 mb-1">
@@ -97,12 +97,12 @@ export default function Home() {
               <h3 className="text-xl font-bold">Flat ₹100 Cashback</h3>
             </div>
             <p className="text-sm text-green-100 mb-4">On orders above ₹999 via UPI</p>
-            <button className="bg-white text-emerald-600 px-4 py-1.5 rounded-full text-sm font-bold">Claim Offer</button>
+            <button type="button" className="bg-white text-emerald-600 px-4 py-1.5 rounded-full text-sm font-bold cursor-pointer">Claim Offer</button>
           </div>
           <div className="bg-gradient-to-r from-amber-400 to-orange-500 rounded-xl p-6 text-white shadow-sm flex flex-col justify-center items-start">
             <h3 className="text-xl font-bold mb-1">Combo Packs</h3>
             <p className="text-sm text-amber-50 mb-4">Save up to 30% on monthly essentials</p>
-            <button className="bg-white text-orange-600 px-4 py-1.5 rounded-full text-sm font-bold">Explore</button>
+            <button type="button" className="bg-white text-orange-600 px-4 py-1.5 rounded-full text-sm font-bold cursor-pointer">Explore</button>
           </div>
         </div>
       </section>

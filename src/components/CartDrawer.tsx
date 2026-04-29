@@ -44,7 +44,7 @@ export default function CartDrawer() {
               {totalItems()} items
             </span>
           </div>
-          <button onClick={toggleCart} className="p-2 bg-gray-100 hover:bg-gray-200 rounded-full text-gray-600 transition">
+          <button type="button" onClick={toggleCart} className="p-2 bg-gray-100 hover:bg-gray-200 rounded-full text-gray-600 transition cursor-pointer flex items-center justify-center">
             <X size={20} />
           </button>
         </div>
@@ -57,8 +57,9 @@ export default function CartDrawer() {
               <p className="text-lg font-semibold text-gray-500">Your cart is empty</p>
               <p className="text-sm mt-1 mb-6">Add items to start shopping</p>
               <button 
+                type="button"
                 onClick={toggleCart}
-                className="bg-[#1a6b2e] text-white px-6 py-2 rounded-lg font-bold shadow-sm"
+                className="bg-[#1a6b2e] text-white px-6 py-2 rounded-lg font-bold shadow-sm cursor-pointer hover:bg-[#124d20] transition flex items-center justify-center"
               >
                 Browse Products
               </button>
@@ -84,23 +85,26 @@ export default function CartDrawer() {
                     <div className="flex items-center bg-gray-100 rounded-lg p-0.5 border border-gray-200">
                       {item.quantity === 1 ? (
                         <button 
+                          type="button"
                           onClick={() => removeItem(item.id)}
-                          className="w-7 h-7 flex items-center justify-center text-red-500 hover:bg-white rounded shadow-sm transition"
+                          className="w-7 h-7 flex items-center justify-center text-red-500 hover:bg-white rounded shadow-sm transition cursor-pointer"
                         >
                           <Trash2 size={14} />
                         </button>
                       ) : (
                         <button 
+                          type="button"
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                          className="w-7 h-7 flex items-center justify-center text-gray-600 hover:bg-white rounded shadow-sm transition"
+                          className="w-7 h-7 flex items-center justify-center text-gray-600 hover:bg-white rounded shadow-sm transition cursor-pointer"
                         >
                           <Minus size={14} />
                         </button>
                       )}
                       <span className="w-8 text-center text-sm font-bold">{item.quantity}</span>
                       <button 
+                        type="button"
                         onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                        className="w-7 h-7 flex items-center justify-center text-[#1a6b2e] hover:bg-white rounded shadow-sm transition"
+                        className="w-7 h-7 flex items-center justify-center text-[#1a6b2e] hover:bg-white rounded shadow-sm transition cursor-pointer"
                       >
                         <Plus size={14} />
                       </button>
@@ -146,7 +150,7 @@ export default function CartDrawer() {
               <span className="font-bold text-lg text-gray-900">₹{grandTotal.toFixed(2)}</span>
             </div>
             
-            <button className="w-full bg-[#1a6b2e] text-white font-bold py-3.5 rounded-xl shadow-md hover:bg-[#124d20] transition-colors flex items-center justify-center gap-2">
+            <button type="button" className="w-full bg-[#1a6b2e] text-white font-bold py-3.5 rounded-xl shadow-md hover:bg-[#124d20] transition-colors flex items-center justify-center gap-2 cursor-pointer">
               <span>Proceed to Checkout</span>
               <ChevronRight size={20} />
             </button>

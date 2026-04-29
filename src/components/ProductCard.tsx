@@ -56,14 +56,16 @@ export default function ProductCard({ product }: { product: Product }) {
         {quantity > 0 ? (
           <div className="w-full bg-[#1a6b2e] text-white flex items-center justify-between rounded-lg overflow-hidden font-bold h-[34px]">
             <button 
-              className="w-10 h-full flex items-center justify-center hover:bg-[#124d20] transition"
+              type="button"
+              className="w-10 h-full flex items-center justify-center hover:bg-[#124d20] transition cursor-pointer"
               onClick={() => updateQuantity(product.id, quantity - 1)}
             >
               -
             </button>
             <span>{quantity}</span>
             <button 
-              className="w-10 h-full flex items-center justify-center hover:bg-[#124d20] transition"
+              type="button"
+              className="w-10 h-full flex items-center justify-center hover:bg-[#124d20] transition cursor-pointer"
               onClick={() => updateQuantity(product.id, quantity + 1)}
             >
               +
@@ -71,8 +73,9 @@ export default function ProductCard({ product }: { product: Product }) {
           </div>
         ) : (
           <button 
+            type="button"
             onClick={handleAdd}
-            className="w-full bg-white border border-[#1a6b2e] text-[#1a6b2e] font-bold h-[34px] rounded-lg hover:bg-[#1a6b2e] hover:text-white transition"
+            className="w-full bg-white border border-[#1a6b2e] text-[#1a6b2e] font-bold h-[34px] flex items-center justify-center rounded-lg hover:bg-[#1a6b2e] hover:text-white transition cursor-pointer"
           >
             ADD
           </button>
