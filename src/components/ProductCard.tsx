@@ -1,6 +1,8 @@
 "use client";
 
 import { useCartStore } from "@/store/cartStore";
+import { toast } from "react-hot-toast";
+import { motion } from "framer-motion";
 
 interface Product {
   id: number;
@@ -28,10 +30,17 @@ export default function ProductCard({ product }: { product: Product }) {
       image: product.image,
       weight: product.weight
     });
+    toast.success(`${product.name} added to cart`);
   };
 
   return (
-    <div className="bg-white p-3 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition relative group flex flex-col h-full">
+    <motion.div 
+      initial={{ opacity: 0, y: 15 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.3 }}
+      className="bg-white p-3 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition relative group flex flex-col h-full"
+    >
       {/* Discount Badge */}
       <div className="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded">
         {product.discount}% OFF
@@ -81,6 +90,6 @@ export default function ProductCard({ product }: { product: Product }) {
           </button>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }

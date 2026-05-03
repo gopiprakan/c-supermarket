@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
+import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({
   children,
@@ -29,6 +30,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col font-sans bg-gray-50 text-gray-900">
+        <Toaster position="top-center" toastOptions={{
+          style: {
+            background: '#333',
+            color: '#fff',
+            borderRadius: '10px',
+          },
+        }} />
         <Header />
         <main className="flex-grow">
           {children}

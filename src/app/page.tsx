@@ -47,8 +47,8 @@ export default function Home() {
         </div>
         <div className="flex overflow-x-auto pb-4 gap-4 sm:gap-6 hide-scrollbar snap-x">
           {CATEGORIES.map((cat, idx) => (
-            <Link href={`/category/${cat.name.toLowerCase()}`} key={idx} className="snap-start shrink-0 flex flex-col items-center gap-2 group">
-              <div className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center text-3xl sm:text-4xl ${cat.color} group-hover:shadow-md transition-shadow`}>
+            <Link href={`/category/${cat.name.toLowerCase()}`} key={idx} className="snap-start shrink-0 flex flex-col items-center gap-2 group cursor-pointer">
+              <div className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center text-3xl sm:text-4xl ${cat.color} group-hover:shadow-lg group-hover:scale-105 transition-all duration-300`}>
                 {cat.image}
               </div>
               <span className="text-sm font-medium text-gray-700 text-center w-20 sm:w-24 leading-tight">{cat.name}</span>

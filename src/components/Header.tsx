@@ -45,7 +45,7 @@ export default function Header() {
 
           {/* Search Bar */}
           <div className="flex-1 max-w-2xl mx-auto hidden md:block">
-            <div className="relative relative flex items-center w-full h-12 rounded-xl focus-within:shadow-lg bg-gray-50 border border-gray-200 overflow-hidden transition-all">
+            <div className="relative flex items-center w-full h-12 rounded-xl focus-within:shadow-[0_0_0_2px_rgba(26,107,46,0.2)] focus-within:border-[#1a6b2e] bg-gray-50 border border-gray-200 overflow-hidden transition-all duration-300">
               <div className="grid place-items-center h-full w-12 text-gray-400">
                 <Search size={20} />
               </div>
@@ -71,7 +71,7 @@ export default function Header() {
             <button 
               type="button"
               onClick={toggleCart}
-              className="flex items-center gap-2 bg-[#f9c740] hover:bg-[#e0b030] text-gray-900 px-3 md:px-4 py-2 md:py-2.5 rounded-lg font-bold transition shadow-sm cursor-pointer"
+              className="flex items-center gap-2 bg-[#f9c740] hover:bg-[#e0b030] text-gray-900 px-3 md:px-4 py-2 md:py-2.5 rounded-lg font-bold hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
             >
               <div className="relative">
                 <ShoppingCart size={22} />
